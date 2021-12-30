@@ -1,7 +1,7 @@
 <template>
     <div>
-        <form @submit.prevent="login">
-            <h2>Login</h2>
+        <form @submit.prevent="register">
+            <h2>Register</h2>
             <input
                 type="email"
                 placeholder="Email address..."
@@ -12,16 +12,15 @@
                 placeholder="password..."
                 v-model="password"
             />
-            <button type="submit">Login</button>
+            <button type="submit">Register</button>
         </form>
     </div>
 </template>
-
 <script>
 import firebase from 'firebase';
 
 export default {
-    name: 'Home',
+    name: 'Register',
     data() {
         return {
             email: '',
@@ -29,13 +28,13 @@ export default {
         };
     },
     methods: {
-        login() {
+        register() {
             firebase
                 .auth()
-                .signInWithEmailAndPassword(this.email, this.password)
+                .createUserWithEmailAndPassword(this.email, this.password)
                 .then(() => {
-                    alert('Successfully logged in');
-                    this.$router.push('/dashboard');
+                    alert('Successfully registered! Please login.');
+                    this.$router.push('/');
                 })
                 .catch(error => {
                     alert(error.message);

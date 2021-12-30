@@ -1,32 +1,22 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import firebase from 'firebase/app';
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAqGm5C3Bad2bFOnareJ9ZIA9JCQ_KPy-k",
-  authDomain: "infoboard-exercise.firebaseapp.com",
-  projectId: "infoboard-exercise",
-  storageBucket: "infoboard-exercise.appspot.com",
-  messagingSenderId: "978651010668",
-  appId: "1:978651010668:web:84c87b72cbf95bd4c3ea49",
-  measurementId: "G-GVJV5S6DLR",
+var firebaseConfig = {
+    apiKey: 'AIzaSyBkrfyjH9XRmmN_PEyEDmI1Yw6e3nQCyp4',
+    authDomain: 'infoboard-exercise-b680c.firebaseapp.com',
+    projectId: 'infoboard-exercise-b680c',
+    storageBucket: 'infoboard-exercise-b680c.appspot.com',
+    messagingSenderId: '7255798773',
+    appId: '1:7255798773:web:073f31ec65c7c52c0526bc',
 };
-
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+firebase.initializeApp(firebaseConfig);
 
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  render: (h) => h(App),
-}).$mount("#app");
+    router,
+    render: h => h(App),
+}).$mount('#app');
